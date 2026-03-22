@@ -14,9 +14,9 @@ h1 {
 /* Grid for kortene */
 #exercisesContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* litt større min-width */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 15px;
-  justify-items: center; /* sentrer kortene */
+  justify-items: center;
 }
 
 /* Kort */
@@ -27,28 +27,24 @@ h1 {
   box-shadow: 0 0 12px #000;
   text-align: left;
   width: 100%;
-  max-width: 400px; /* maks bredde */
+  max-width: 400px;
 }
 
-/* Øvelse tittel */
 .card h2 {
   margin-top: 0;
   font-size: 1.5em;
 }
 
-/* PR større tekst */
 .pr {
   font-size: 2.5em;
   font-weight: bold;
 }
 
-/* Mål og progress */
 .goal, .progress-text {
   font-size: 1.2em;
   margin: 8px 0;
 }
 
-/* Progress bar container */
 .progress-bar-container {
   background: #333;
   border-radius: 5px;
@@ -58,7 +54,6 @@ h1 {
   overflow: hidden;
 }
 
-/* Progress bar */
 .progress-bar {
   height: 100%;
   width: 0%;
@@ -66,7 +61,6 @@ h1 {
   transition: width 0.8s ease-in-out;
 }
 
-/* Inputs og knapp */
 input {
   margin: 5px 5px 10px 0;
   padding: 8px;
@@ -94,10 +88,10 @@ button:hover {
   background: #218838;
 }
 
-/* Mobilvennlig justering – TVUNGET 1 kolonne */
+/* Små skjermer: 1 kort per rad */
 @media (max-width: 600px) {
   #exercisesContainer {
-    grid-template-columns: 1fr; /* 1 kort per rad */
+    grid-template-columns: 1fr;
     gap: 20px;
   }
 
@@ -127,5 +121,24 @@ button:hover {
 
   .progress-bar-container {
     height: 30px;
+  }
+}
+
+/* Mellomstor skjerm: 2 kort per rad */
+@media (min-width: 601px) and (max-width: 900px) {
+  #exercisesContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card {
+    max-width: 350px;
+    padding: 25px;
+  }
+}
+
+/* Store skjermer: 3+ kort */
+@media (min-width: 901px) {
+  #exercisesContainer {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 }
